@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h1>Notes App</h1>
+        <script src="/scripts/uuidv4.js"></script>
+        <script src="/scripts/notes-functions.js"></script>
+        <p class="note-class">Welcome to Nathan's Note app</p>
+        <input id="search-text" placeholder="Add a new note">
+        <select id="filterBy">
+            <option value="byEdited">Sort by last edited</option>
+            <option value="byCreated">Sort by recently created</option>
+            <option value="alphabetical">Sort alphabetically</option>
+        </select>
+        <div id="notes"></div>
+        <button id="add-note">Create a new note</button>
+        <script src="/scripts/notes-app.js"></script>
+    </body>
