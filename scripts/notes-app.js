@@ -35,11 +35,12 @@ document.querySelector('#filterBy').addEventListener('change', function (e) {
 })
 
 document.querySelector('#add-note').addEventListener('click', function () {
+  var noteId = uuidv4()
   notes.push({
-    id: uuidv4(),
+    id: noteId,
     title: '',
     body: ''
   })
   saveNotes(notes)
-  renderNotes(notes, filters)
+  location.assign(`editnote.html#${noteId}`)
 })
