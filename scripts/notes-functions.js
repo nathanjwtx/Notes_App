@@ -47,9 +47,11 @@ const removeNote = function (id) {
     const noteIndex = notes.findIndex(function (note) {
         return note.id = id
     })
-    if (noteIndex > -1) {
-        notes.splice(noteIndex, 1)
-    }
+    const noteIndex1 = notes.findIndex(note => note.id = id)
+    console.log(noteIndex1)
+    // if (noteIndex > -1) {
+    //     notes.splice(noteIndex, 1)
+    // }
 }
 
 // render application notes
