@@ -26,7 +26,7 @@ document.querySelector('#noteBody').addEventListener('focusout', function(e) {
 document.querySelector('#noteRemove').addEventListener('click', function () {
     removeNote(noteId)
     saveNotes(notes)
-    // returnHome()
+    returnHome()
 })
 
 const returnHome = function() {
