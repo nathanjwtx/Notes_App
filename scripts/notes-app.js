@@ -17,7 +17,8 @@
 //   })
 // })
 
-const notes = getSavedNotes()
+let notes = getSavedNotes()
+const noteId = location.hash.substr(1)
 
 const filters = {
     searchText: ''
@@ -43,4 +44,23 @@ document.querySelector('#add-note').addEventListener('click', function () {
      })
     saveNotes(notes)
     location.assign(`editnote.html#${noteId}`)
+})
+
+window.addEventListener('storage', function (e) {
+    if (e.key === "notes") {
+        notes = JSON.parse(e.newValue)
+
+        // instructor solution
+        // renderNotes(notes, filters)
+
+        let getNote = notes.find(function (getNote) {
+            return getNote.id === noteId
+        })
+        
+        if (getNote === undefined) {
+            location.assign('index.html')
+        }
+        
+        document.quertSelector('#noteTitle').value = getNote.title
+    }
 })
