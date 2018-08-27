@@ -37,10 +37,13 @@ document.querySelector('#filterBy').addEventListener('change', function (e) {
 
 document.querySelector('#add-note').addEventListener('click', function () {
     var noteId = uuidv4()
+    const timestamp = moment()
     notes.push({
         id: noteId,
         title: '',
-        body: ''
+        body: '',
+        createdAt: timestamp.valueOf(),
+        updatedAt: timestamp.valueOf()
      })
     saveNotes(notes)
     location.assign(`editnote.html#${noteId}`)

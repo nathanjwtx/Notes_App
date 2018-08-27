@@ -17,6 +17,7 @@ bodyElement.value = getNote.body
 
 document.querySelector('#noteTitle').addEventListener('input', function(e) {
     getNote.title =  e.target.value
+    getNote.updatedAt = moment().valueOf()
     saveNotes(notes)
 })
 
@@ -27,6 +28,7 @@ document.querySelector('#noteTitle').addEventListener('input', function(e) {
 
 document.querySelector('#noteBody').addEventListener('focusout', function(e) {
     getNote.body = e.target.value
+    getNote.updatedAt = moment().valueOf()
     saveNotes(notes)
 })
 
