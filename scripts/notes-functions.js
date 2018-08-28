@@ -66,3 +66,9 @@ const renderNotes = function (notes, filters) {
         document.querySelector('#notes').appendChild(noteElement)
     })
 }
+
+// last edited time function
+const elapsedTime = function(timeStamp) {
+    var elapsed = moment(timeStamp)
+    return elapsed.fromNow()
+}

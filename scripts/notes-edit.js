@@ -11,13 +11,16 @@ if (getNote === undefined) {
 }
 
 const titleElement = document.querySelector('#noteTitle')
-titleElement.value = getNote.title
 const bodyElement = document.querySelector('#noteBody')
+const elapsedElement = document.querySelector('#elapsedTime')
+titleElement.value = getNote.title
 bodyElement.value = getNote.body
+elapsedElement.textContent = `Last edited ${elapsedTime(getNote.updatedAt)}`
 
 document.querySelector('#noteTitle').addEventListener('input', function(e) {
     getNote.title =  e.target.value
     getNote.updatedAt = moment().valueOf()
+    elapsedElement.textContent = `Last edited ${elapsedTime(getNote.updatedAt)}`
     saveNotes(notes)
 })
 
@@ -29,6 +32,7 @@ document.querySelector('#noteTitle').addEventListener('input', function(e) {
 document.querySelector('#noteBody').addEventListener('focusout', function(e) {
     getNote.body = e.target.value
     getNote.updatedAt = moment().valueOf()
+    elapsedElement.textContent = `Last edited ${elapsedTime(getNote.updatedAt)}`
     saveNotes(notes)
 })
 
@@ -54,7 +58,7 @@ window.addEventListener('storage', function(e) {
         if (getNote === undefined) {
             returnHome()
         }
-        
+        elapsedElement.textContent = `Last edited ${elapsedTime(getNote.updatedAt)}`
         titleElement.value = getNote.title
         bodyElement.value = getNote.body
     }
