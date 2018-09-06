@@ -4,7 +4,7 @@ document.getElementById('noteTitle').focus()
 
 let getNote = notes.find((getNote) => getNote.id === noteId)
 
-if (getNote === undefined) {
+if (!getNote) {
     returnHome()
 }
 
@@ -49,7 +49,7 @@ window.addEventListener('storage', (e) => {
 
         let getNote = notes.find((getNote) => getNote.id === noteId)
         
-        if (getNote === undefined) {
+        if (!getNote) {
             returnHome()
         }
         elapsedElement.textContent = `Last edited ${elapsedTime(getNote.updatedAt)}`
