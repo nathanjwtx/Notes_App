@@ -1,3 +1,5 @@
+'use strict'
+
 // const notes = [{
 //   title: 'note1',
 //   body: 'I need a holiday'
