@@ -1,7 +1,11 @@
 // read existing notes from localStorage
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem('notes')
-    return notesJSON ? JSON.parse(notesJSON) : []
+    try {
+        return notesJSON ? JSON.parse(notesJSON) : []
+    } catch (e) {
+        return []
+    }
     // replace below with line above using ternary operator
     // if (notesJSON != null) {
     //     return JSON.parse(notesJSON)
